@@ -27,9 +27,9 @@ namespace PokemonReviewApp.Repository
             return _context.Reviews.Where(r => r.Pokemon.Id == pokeId).ToList();
         }
 
-        public bool ReviewExist(int reviewId)
+        public bool ReviewExists(int reviewId)
         {
-            return _context.Reviews.Any(r => r.Id == reviewId);
+            throw new NotImplementedException();
         }
     }
 }

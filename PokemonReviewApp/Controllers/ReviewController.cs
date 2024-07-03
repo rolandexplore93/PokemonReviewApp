@@ -38,7 +38,7 @@ namespace PokemonReviewApp.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetReview(int reviewId)
         {
-            if (!_reviewRepository.ReviewExist(reviewId))
+            if (!_reviewRepository.ReviewExists(reviewId))
             {
                 return NotFound();
             }
