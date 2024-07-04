@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using PokemonReviewApp.Dto;
 using PokemonReviewApp.Interfaces;
 using PokemonReviewApp.Models;
+using PokemonReviewApp.Repository;
 
 namespace PokemonReviewApp.Controllers
 {
@@ -69,5 +70,32 @@ namespace PokemonReviewApp.Controllers
             return Ok(country);
         }
 
+        [HttpPost]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult CreateCountry([FromBody] CountryDto country)
+        {
+            if (country == null) return BadRequest(ModelState);
+
+            var checkCountryExists = _countryRepository.GetCountries().Where(c => c.Name.Trim().ToUpper() == country.Name.Trim().ToUpper()).FirstOrDefault();
+
+            if (checkCountryExists != null)
+            {
+                ModelState.AddModelError("", "Country already exist");
+                return StatusCode(409, ModelState);
+            }
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var checkCountryExistsMap = _mapper.Map<Country>(country);
+
+            if (!_countryRepository.CreateCountry(checkCountryExistsMap))
+            {
+                ModelState.AddModelError("", "Something went wrong! Please try again");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Country created successfully");
+        }
     }
 }
