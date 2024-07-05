@@ -123,5 +123,29 @@ namespace PokemonReviewApp.Controllers
 
             return Ok("Account successfully created");
         }
+
+        [HttpPut("{ownerId}")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        public IActionResult UpdateOwner(int ownerId, [FromBody] OwnerDto updatedOwner)
+        {
+            if (updatedOwner == null) return BadRequest(ModelState);
+
+            if (ownerId != updatedOwner.Id) return BadRequest(ModelState);
+
+            if (!_ownerRepository.OwnerExist(ownerId)) return NotFound();
+
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var updatedOwnerMap = _mapper.Map<Owner>(updatedOwner);
+
+            if (!_ownerRepository.UpdateOwner(updatedOwnerMap))
+            {
+                ModelState.AddModelError("", "Something went wrong! Please try again");
+                return StatusCode(500, ModelState);
+            }
+
+            return Ok("Owner successfully updated.");
+        }
     }
 }
