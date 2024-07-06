@@ -123,7 +123,7 @@ namespace PokemonReviewApp.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return Ok("Reviewer successfully updated.....");
+            return Ok("Reviewer successfully updated.");
         }
     }
 }
