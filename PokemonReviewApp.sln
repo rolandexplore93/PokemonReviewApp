@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonReviewApp", "PokemonReviewApp\PokemonReviewApp.csproj", "{8C3AA32C-7478-4F96-88B2-528781919661}"
 EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{93F45FB7-77CD-45E4-B16A-A7165A2E3A77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8C3AA32C-7478-4F96-88B2-528781919661}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C3AA32C-7478-4F96-88B2-528781919661}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C3AA32C-7478-4F96-88B2-528781919661}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93F45FB7-77CD-45E4-B16A-A7165A2E3A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93F45FB7-77CD-45E4-B16A-A7165A2E3A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93F45FB7-77CD-45E4-B16A-A7165A2E3A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93F45FB7-77CD-45E4-B16A-A7165A2E3A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
