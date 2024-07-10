@@ -4,8 +4,8 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 ## hide appsettings.json
-appsettings.json
-pokemonReviewApp/appsettings.json
+/appsettings.json
+PokemonReviewApp/appsettings.json
 
 # User-specific files
 *.rsuser
