@@ -26,6 +26,11 @@ namespace PokemonReviewApp.Controllers
         {
             var reviewers = _mapper.Map<List<ReviewerDto>>(_reviewerRepository.GetReviewers());
 
+            if (reviewers.Count() < 1)
+            {
+                return NotFound("No User found!");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

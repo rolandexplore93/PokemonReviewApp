@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace PokemonReviewApp.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class AddPokemonTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

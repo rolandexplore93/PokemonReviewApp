@@ -25,6 +25,11 @@ namespace PokemonReviewApp.Controllers
         {
             var categories = _mapper.Map<List<CategoryDto>>(_categoryRepository.GetCategories());
 
+            if (categories.Count() < 1)
+            {
+                return NotFound("No Category Available!");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

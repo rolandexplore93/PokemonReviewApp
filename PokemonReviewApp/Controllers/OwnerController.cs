@@ -28,6 +28,11 @@ namespace PokemonReviewApp.Controllers
         {
             var owners = _mapper.Map<List<OwnerDto>>(_ownerRepository.GetOwners());
 
+            if (owners.Count() < 1)
+            {
+                return NotFound("Pokemon Owners Not Available!");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

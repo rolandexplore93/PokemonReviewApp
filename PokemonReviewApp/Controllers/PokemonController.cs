@@ -27,6 +27,11 @@ namespace PokemonReviewApp.Controllers
         {
             var pokemons = _mapper.Map<List<PokemonDto>>(_pokemonRepository.GetPokemons());
 
+            if (pokemons.Count() < 1)
+            {
+                return NotFound("No pokemon found!");
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);

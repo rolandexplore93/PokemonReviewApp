@@ -25,6 +25,7 @@ namespace PokemonReviewApp.Controllers
         public IActionResult GetCountries()
         {
             var countries = _mapper.Map<List<CountryDto>>(_countryRepository.GetCountries());
+
             if (countries.Count() < 1)
             {
                 return NotFound("No country registered yet!");

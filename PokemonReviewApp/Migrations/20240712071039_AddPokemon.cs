@@ -4,7 +4,7 @@
 
 namespace PokemonReviewApp.Migrations
 {
-    public partial class AddPokemonToDatabase : Migration
+    public partial class AddPokemon : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
